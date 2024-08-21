@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Sederhana</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        button {
+            padding: 15px 25px;
+            font-size: 18px;
+            border-radius: 5px;
+            border: none;
+            background-color: rgb(96, 96, 188);
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2577d5;
+        }
+    </style>
+</head>
+<body>
+
+    <button onclick="calculate()">Buka Kalkulator</button>
+
+    <script>
+        function calculate() {
+            const num1 = parseFloat(prompt("Masukkan angka pertama:"));
+            const operator = prompt("Masukkan operator (+, -, *, /):");
+            const num2 = parseFloat(prompt("Masukkan angka kedua:"));
+            let result;
+
+            if (isNaN(num1) || isNaN(num2)) {
+                alert("Error! Anda harus memasukkan angka yang valid.");
+                return;
+            }
+
+            switch (operator) {
+                case '+':
+                    result = num1 + num2;
+                    break;
+                case '-':
+                    result = num1 - num2;
+                    break;
+                case '*':
+                    result = num1 * num2;
+                    break;
+                case '/':
+                    if (num2 !== 0) {
+                        result = num1 / num2;
+                    } else {
+                        alert("Error! Pembagian dengan nol tidak diperbolehkan.");
+                        return;
+                    }
+                    break;
+                default:
+                    alert("Error! Operator tidak valid.");
+                    return;
+            }
+
+            alert(`Hasil: ${result}`);
+        }
+    </script>
+
+</body>
+</html>
